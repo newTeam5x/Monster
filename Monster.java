@@ -84,6 +84,14 @@ public class Monster {
         return mana;
     }
 
+    public int getDamageMin(){
+        return damageMin;
+    }
+
+    public int getDamageMax(){
+        return damageMax;
+    }
+
 
     //Setters
     public void setHealthPotions(int amount){
@@ -123,6 +131,8 @@ public class Monster {
         this.coinDropMax = coinDropMax;
         this.damageMin = damageMin;
         this.damageMax = damageMax;
+        this.minMagicDmg = minMagicDmg;
+        this.maxMagicDmg = maxMagicDmg;
     }
 
     public Monster(){
@@ -162,7 +172,7 @@ public class Monster {
         //Dodać monety i expa do bohatera
 
         //Walka z kolejnym
-        //encounterNew();
+        //encounterNew(); -> nie wiem czemu nie działa :/
     }
 
     public boolean useHealthPotions(){
@@ -186,7 +196,7 @@ public class Monster {
         else{
 
             //Wymyślić zaklęcia
-            int chooseSpell = Random.RInt(1,3);
+            int chooseSpell = Random.RInt(1,2);
                 if (chooseSpell == 1){
                     manaConsumtion = 20;
                     this.mana -= manaConsumtion;
