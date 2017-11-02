@@ -19,7 +19,7 @@ public class Monster {
 
     //Properties (Constant)
     private int healthMax;
-    private int mana;       //Znalezc sensowne zastosowanie
+    private int manaMax;
     private double speedAttack;     //Znalezc sensowne zastosowanie
     private int lvl;        //Znalezc sensowne zastosowanie
     private String nameOfTheMonster;
@@ -35,6 +35,7 @@ public class Monster {
 
     //Variables
     private int health;
+    private int mana;       //Znalezc sensowne zastosowanie
     private int healthPotions;
 
 
@@ -53,6 +54,18 @@ public class Monster {
 
     public String getHealthStatusBar(){
         return (health + "/" + healthMax);
+    }
+
+    public int getMana(){
+        return mana;
+    }
+
+    public int getManaMax(){
+        return manaMax;
+    }
+
+    public String getManaStatusBar(){
+        return (mana + "/" + manaMax);
     }
 
     public String getNameOfTheMonster(){
@@ -80,9 +93,6 @@ public class Monster {
         return maxMagicDmg;
     }
 
-    public int getMana(){
-        return mana;
-    }
 
     public int getDamageMin(){
         return damageMin;
@@ -113,15 +123,22 @@ public class Monster {
         this.healthMax = max;
     }
 
+    public void setMana(int current, int max){
+        this.mana = current;
+        this.manaMax = max;
+    }
+
     public static void set(int i){
         current = arrayEnemy.get(i);
     }
 
 
     //Monster constructor
-    public Monster(int healthMax, int mana, double speedAttack, int lvl, String nameOfTheMonster, int expMin, int expMax, int coinDropMin, int coinDropMax, int damageMin, int damageMax, int minMagicDmg, int maxMagicDmg){
+    public Monster(int health, int healthMax, int mana, int manaMax, double speedAttack, int lvl, String nameOfTheMonster, int expMin, int expMax, int coinDropMin, int coinDropMax, int damageMin, int damageMax, int minMagicDmg, int maxMagicDmg){
+        this.health = health;
         this.healthMax = healthMax;
         this.mana = mana;
+        this.manaMax = manaMax;
         this.speedAttack = speedAttack;
         this.lvl = lvl;
         this.nameOfTheMonster = nameOfTheMonster;
