@@ -173,7 +173,6 @@ public class Monster {
     }
 
     public void dealDamage(int damage){
-        damage = Random.RInt(damageMin, damageMax);
         /* Dodac przyjmowanie obrazen - coś w stylu playerHealth.takeDamage(damage) */
     }
 
@@ -220,6 +219,8 @@ public class Monster {
 
                     magicDmg = Spells.fireBall(lvl, minMagicDmg, maxMagicDmg);
                     this.dealDamage(magicDmg);
+                    System.out.println(getNameOfTheMonster() + "uzyl magii: Fire Ball!, " + "zadal Ci: " + magicDmg + " punktow obrazen");
+
                 }
                 if (chooseSpell == 2){
                     manaConsumtion = 40;
@@ -227,8 +228,15 @@ public class Monster {
 
                     magicDmg = Spells.iceSpike(lvl, minMagicDmg, maxMagicDmg);
                     this.dealDamage(magicDmg);
+                    System.out.println(getNameOfTheMonster() + "uzyl magii: Ice Spike!, " + "zadal Ci: " + magicDmg + " punktow obrazen");
                 }
             return true;
         }
+    }
+
+    public int physicalAttack(int damageMin, int damageMax){
+        int damage = Random.RInt(damageMin, damageMax);
+        dealDamage(damage);
+        return damage;
     }
 }

@@ -13,6 +13,12 @@ public class Main {
         System.out.println(szkielet.takeDamage(95));
         System.out.println(szkielet.getHealthStatusBar());
 
+        System.out.println();
+        System.out.println(szkielet.getMana());
+        System.out.println(szkielet.physicalAttack(5, 10));
+        System.out.println(szkielet.useMagic(5, 30)); //Skurwol może używać magii nawet jak nie ma na tyle magii, no co za chuj :D
+        System.out.println(szkielet.getMana());
+
         //System.out.println(szkielet.dealDamage(5));
     }
 }
