@@ -8,17 +8,20 @@ public class Spells extends Monster{
     }
 
     public static int iceSpike(int lvl, int minDmg, int maxDmg){
+        //lvl = getLvl();
         int spelldamage = Random.RInt(minDmg, maxDmg);
         spelldamage *= lvl;
         return spelldamage;
     }
 
     public static int heal (int lvl, int minDmg, int maxDmg){
+        //lvl = getLvl();
         int spellDamage = Random.RInt(minDmg, maxDmg);
         spellDamage *= lvl;
         //Ma działać tak samo jak potki, w sensie takeDamage(-spelldamage)
         return spellDamage;
-
     }
+
+
 
 }

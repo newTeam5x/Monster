@@ -29,6 +29,8 @@ public class Monster {
     private int coinDropMax;
     private int damageMin;
     private int damageMax;
+    private int minMagicDmg;
+    private int maxMagicDmg;
 
 
     //Variables
@@ -65,6 +67,23 @@ public class Monster {
         return arrayEnemy.indexOf(i);
     }
 
+    public int getLvl(){
+        //return lvl *= heroLvl;
+        return lvl;
+    }
+
+    public int getMinMagicDmg(){
+        return minMagicDmg;
+    }
+
+    public int getMaxMagicDmg(){
+        return maxMagicDmg;
+    }
+
+    public int getMana(){
+        return mana;
+    }
+
 
     //Setters
     public void setHealthPotions(int amount){
@@ -92,7 +111,7 @@ public class Monster {
 
 
     //Monster constructor
-    public Monster(int healthMax, int mana, double speedAttack, int lvl, String nameOfTheMonster, int expMin, int expMax, int coinDropMin, int coinDropMax, int damageMin, int damageMax){
+    public Monster(int healthMax, int mana, double speedAttack, int lvl, String nameOfTheMonster, int expMin, int expMax, int coinDropMin, int coinDropMax, int damageMin, int damageMax, int minMagicDmg, int maxMagicDmg){
         this.healthMax = healthMax;
         this.mana = mana;
         this.speedAttack = speedAttack;
@@ -126,8 +145,8 @@ public class Monster {
         return false;
     }
 
-    public void dealDamage(){
-        int damage = Random.RInt(damageMin, damageMax);
+    public void dealDamage(int damage){
+        damage = Random.RInt(damageMin, damageMax);
         /* Dodac przyjmowanie obrazen - coś w stylu playerHealth.takeDamage(damage) */
     }
 
@@ -143,7 +162,7 @@ public class Monster {
         //Dodać monety i expa do bohatera
 
         //Walka z kolejnym
-        encounterNew();
+        //encounterNew();
     }
 
     public boolean useHealthPotions(){
@@ -157,12 +176,31 @@ public class Monster {
         }
     }
 
-    public boolean useMagic(){
+    public boolean useMagic(int minMagicDmg, int maxMagicDmg){
+        int magicDmg;
+        int manaConsumtion;
+
         if (this.mana <= 0){
             return false;
         }
         else{
+
             //Wymyślić zaklęcia
+            int chooseSpell = Random.RInt(1,3);
+                if (chooseSpell == 1){
+                    manaConsumtion = 20;
+                    this.mana -= manaConsumtion;
+
+                    magicDmg = Spells.fireBall(lvl, minMagicDmg, maxMagicDmg);
+                    this.dealDamage(magicDmg);
+                }
+                if (chooseSpell == 2){
+                    manaConsumtion = 40;
+                    this.mana -= manaConsumtion;
+
+                    magicDmg = Spells.iceSpike(lvl, minMagicDmg, maxMagicDmg);
+                    this.dealDamage(magicDmg);
+                }
             return true;
         }
     }
