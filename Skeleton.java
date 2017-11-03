@@ -4,18 +4,13 @@ public class Skeleton extends Monster {
         super(health, healthMax, mana, manaMax, speedAttack, lvl, nameOfTheMonster, expMin, expMax, coinDropMin, coinDropMax, damageMin, damageMax, minMagicDmg, maxMagicDmg);
     }
 
-    int damage = Random.RInt(getDamageMin(), getDamageMax());
-
     public void dealDamage(){
         int typeOfAttack = Random.RInt(1,2);
         if (typeOfAttack == 1){
-            super.dealDamage(damage);
+            physicalAttack(5, 14);
         }
         else{
-            int magicAttack = Random.RInt(1,6);
-            if (magicAttack == 5 || magicAttack == 3){
-                useMagic(getMinMagicDmg(), getMaxMagicDmg());
-            }
+            useMagic(5, 80);
         }
 
     }
