@@ -1,14 +1,28 @@
 public class Magic extends Spells {
 
-    public static int useFireBall(int lvl, int minMagicDamage, int maxMagicDamage, int mana){
-        int requiredMana = 20;
+    Monster monster = new Monster();
 
-        if (requiredMana > mana){
+    int requiredMana;
+    int mana = this.monster.getMana();
+    int manaMax = this.monster.getManaMax();
+    int currentMana;
+    int magicDmg;
+
+    public int useFireBall(int lvl, int minMagicDamage, int maxMagicDamage){
+        this.requiredMana = 20;
+        System.out.println(mana);
+
+        if (requiredMana > this.mana){
             System.out.println("Ni mosz many na fajer bola");
             return 0;
         }
-        int magicDmg = Spells.fireBall(lvl, minMagicDamage, maxMagicDamage);
-        return magicDmg;
+        else{
+            this.magicDmg = Spells.fireBall(lvl, minMagicDamage, maxMagicDamage);
+            this.currentMana = mana - requiredMana;
+            monster.setMana(currentMana, manaMax);
+            System.out.println("Uzyl FireBall! i zadal Ci: " + magicDmg + " punktow obrazen!");
+            return magicDmg;
+        }
     }
 
     public static int useIceSpike(int lvl, int minMagicDamage, int maxMagicDamage, int mana){

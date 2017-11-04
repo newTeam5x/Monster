@@ -205,14 +205,15 @@ public class Monster {
         int chooseSpell = Random.RInt(1, 2);
         int magicDmg;
 
+        Magic magic = new Magic();
+
         if (chooseSpell == 1){
             System.out.println("Przed uzyciem zaklecia: " + getManaStatusBar());
-            int requiredMana = 20;
-            magicDmg = Magic.useFireBall(getLvl(), minMagicDmg, maxMagicDmg, getMana());
-            int currentMana = getMana() - requiredMana;
-            setMana(currentMana, getManaMax());
+
+            magicDmg = magic.useFireBall(getLvl(), minMagicDmg, maxMagicDmg);
+
             System.out.println("Po uzyciu zaklecia: " + getManaStatusBar());
-            System.out.println(getNameOfTheMonster() + " uzyl FireBall! i zadal Ci: " + magicDmg + " punktow obrazen!");
+
             dealDamage(magicDmg);
             return magicDmg;
         }

@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String args[]){
 
-        Monster szkielet = new Skeleton(100,100, 19, 30, 1.0, 1, "Szkielet", 5, 10, 0, 20, 5, 20, 5, 30);
+        Monster szkielet = new Skeleton(100,100, 30, 30, 1.0, 1, "Szkielet", 5, 10, 0, 20, 5, 20, 5, 30);
 
         System.out.println("Nazwa zioma: " + szkielet.getNameOfTheMonster());
 
@@ -17,7 +17,9 @@ public class Main {
         System.out.println("Ziomek ma: " + szkielet.getMana() + " many");
         System.out.println("Ziomek Ci zajebał: " + szkielet.physicalAttack(5, 10) + " punktów obrażeń");
         System.out.println();
+
         System.out.println(szkielet.useMagic(15, 30));
+
         System.out.println();
         System.out.println("Ziomek ma: " + szkielet.getMana() + " many");
         System.out.println(szkielet.testMany());
