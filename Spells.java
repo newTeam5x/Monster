@@ -1,4 +1,4 @@
-public class Spells {
+public class Spells extends Magic{
 
     public static int fireBall(int lvl, int minDmg, int maxDmg){
         int spellDamage = Random.RInt(minDmg, maxDmg);

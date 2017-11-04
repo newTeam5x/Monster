@@ -1,24 +1,25 @@
-public class Magic extends Spells {
+public class Magic {
 
-    Monster monster = new Monster();
+    Monster monster = new Monster(100, 100, 30, 30, 1.0, 1, "Chuj", 5, 10, 10, 20, 30, 40, 20, 40);
 
     int requiredMana;
-    int mana = this.monster.getMana();
-    int manaMax = this.monster.getManaMax();
+    int mana = monster.getMana();
+    int manaMax = monster.getManaMax();
     int currentMana;
     int magicDmg;
 
     public int useFireBall(int lvl, int minMagicDamage, int maxMagicDamage){
-        this.requiredMana = 20;
+        requiredMana = 20;
         System.out.println(mana);
+        System.out.println(manaMax);
 
-        if (requiredMana > this.mana){
+        if (requiredMana > mana){
             System.out.println("Ni mosz many na fajer bola");
             return 0;
         }
         else{
-            this.magicDmg = Spells.fireBall(lvl, minMagicDamage, maxMagicDamage);
-            this.currentMana = mana - requiredMana;
+            magicDmg = Spells.fireBall(lvl, minMagicDamage, maxMagicDamage);
+            currentMana = mana - requiredMana;
             monster.setMana(currentMana, manaMax);
             System.out.println("Uzyl FireBall! i zadal Ci: " + magicDmg + " punktow obrazen!");
             return magicDmg;
